@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+  <div class="container">
+
+    <h1>{{ title }}</h1>
+      <p>{{ message }}</p>
+    <br><br>
+
+    <table>
+      <tbody>
+        {% for submission in submissions %}
+        <tr>
+          <td><img src='{{ submission.image }}'></td>
+        </tr>
+        <tr>
+          <td>{{ submission.name }}</td>
+        </tr>
+        <tr>
+          <td><a href='{{ submission.url }}'>Github Link</td>
+        </tr>
+        <tr>
+          <td>
+            <button type="submit" id="home" class="btn btn-primary">VOTE</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br><br>
+    <form method="POST" action="/">
+      <button type="submit" id="home" class="btn btn-success">Back to Home</button>
+    </form>
+
+  </div>
+
+{% endblock %}
